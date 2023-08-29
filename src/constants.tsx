@@ -1,4 +1,5 @@
 import type { ColumnsType } from 'antd/es/table'
+import { Button } from 'antd'
 
 export type DataType = {
     key: number
@@ -13,6 +14,11 @@ export const gameTableColumns: ColumnsType<DataType> = [
         title: 'Title',
         dataIndex: 'title',
         key: 'title',
+        render: (value, record) => (
+            <Button type="link" href={String(record.key)} block>
+                {value}
+            </Button>
+        ),
     },
     {
         title: 'Date',
