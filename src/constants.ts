@@ -8,7 +8,7 @@ export type DataType = {
     genre: string
     thumbnail: string
 }
-export const gameTableColumns: ColumnsType = [
+export const gameTableColumns: ColumnsType<DataType> = [
     {
         title: 'Title',
         dataIndex: 'title',

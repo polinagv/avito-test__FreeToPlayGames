@@ -1,18 +1,9 @@
 import GameList from '../components/GameList.tsx'
 
-import { useState, useEffect } from 'react'
-import { getGamesList } from '../api/games.ts'
-import { Game } from '../common/types.ts'
+import { useFetchGamesList } from '../common/hooks.ts'
 
 const HomePage = () => {
-    const [games, setGames] = useState<Game[]>([])
-
-    useEffect(() => {
-        getGamesList().then(({ data }) => {
-            setGames(data)
-            console.log(data)
-        })
-    }, [])
+    const [games] = useFetchGamesList()
 
     return <GameList games={games} />
 }
