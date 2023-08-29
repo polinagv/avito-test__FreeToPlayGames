@@ -13,7 +13,7 @@ const headers = {
 const net = axios.create({
     baseURL: API_BASE_URL,
     headers,
-    timeout: 3000,
+    timeout: 5000,
 })
 
 export type ListQueryParams =
