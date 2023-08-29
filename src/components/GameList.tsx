@@ -21,11 +21,10 @@ const GameList: FC<Props> = ({ games, setParams }) => {
     )
 
     const handleChange: TableProps<DataType>['onChange'] = (
-        pagination,
+        _pagination,
         filters,
         sorter
     ) => {
-        console.log(pagination, filters, sorter)
         setParams((prevState) => ({
             ...prevState,
             'sort-by':
