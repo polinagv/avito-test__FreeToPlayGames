@@ -1,7 +1,7 @@
 import { Table } from 'antd'
 import { FC, useMemo } from 'react'
 
-import { gameTableColumns } from '../constants.ts'
+import { gameTableColumns } from '../constants.tsx'
 import { Game } from '../common/types.ts'
 import { mapGameDataToTableData } from '../common/utils.ts'
 

@@ -1,5 +1,5 @@
 import { Game } from './types.ts'
-import { DataType } from '../constants.ts'
+import { DataType } from '../constants.tsx'
 
 export const mapGameDataToTableData = (game: Game): DataType => ({
     key: game.id,
