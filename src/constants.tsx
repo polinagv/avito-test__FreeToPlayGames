@@ -1,43 +1,42 @@
-import type { ColumnsType } from 'antd/es/table'
-import { Button } from 'antd'
-
 export type DataType = {
     key: number
     title: string
-    date: Date
+    'release-date': Date
     publisher: string
-    genre: string
+    category: string
     thumbnail: string
+    platform: string
 }
-export const gameTableColumns: ColumnsType<DataType> = [
+
+export const categoryFilters = [
     {
-        title: 'Title',
-        dataIndex: 'title',
-        key: 'title',
-        render: (value, record) => (
-            <Button type="link" href={String(record.key)} block>
-                {value}
-            </Button>
-        ),
+        text: 'Action',
+        value: 'action',
     },
     {
-        title: 'Date',
-        dataIndex: 'date',
-        key: 'date',
+        text: 'Mmorpg',
+        value: 'mmorpg',
     },
     {
-        title: 'Publisher',
-        dataIndex: 'publisher',
-        key: 'publisher',
+        text: 'Shooter',
+        value: 'shooter',
     },
     {
-        title: 'Genre',
-        dataIndex: 'genre',
-        key: 'genre',
+        text: 'Sports',
+        value: 'sports',
     },
     {
-        title: 'Thumbnail',
-        dataIndex: 'thumbnail',
-        key: 'thumbnail',
+        text: 'Anime',
+        value: 'anime',
+    },
+]
+export const platformFilters = [
+    {
+        text: 'PC',
+        value: 'pc',
+    },
+    {
+        text: 'Browser',
+        value: 'browser',
     },
 ]

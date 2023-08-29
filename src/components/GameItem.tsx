@@ -1,2 +1,4 @@
-const GameItem = () => {}
+const GameItem = () => {
+    return <span></span>
+}
 export default GameItem
