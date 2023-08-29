@@ -1,7 +1,14 @@
-function App() {
-    const test = 'sdasd'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import HomePage from './pages/HomePage.jsx'
 
-    return <>123123</>
+function App() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+            </Routes>
+        </BrowserRouter>
+    )
 }
 
 export default App
