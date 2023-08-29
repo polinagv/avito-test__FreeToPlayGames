@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { type Game } from '../common/types.ts'
 
 const API_BASE_URL = 'https://free-to-play-games-database.p.rapidapi.com/api/'
 
@@ -14,6 +15,6 @@ const net = axios.create({
     timeout: 3000,
 })
 
-export const getGamesList = () => net.get('/games')
+export const getGamesList = () => net.get<Game[]>('/games')
 
-export const getGameById = (id: string) => net.get(`/game?id=${id}`)
+export const getGameById = (id: string) => net.get<Game>(`/game?id=${id}`)

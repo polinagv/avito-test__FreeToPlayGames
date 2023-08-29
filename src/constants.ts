@@ -1,17 +1,18 @@
 import type { ColumnsType } from 'antd/es/table'
 
 export type DataType = {
-    key: string
-    name: string
-    age: number
-    address: string
-    tags: string[]
+    key: number
+    title: string
+    date: Date
+    publisher: string
+    genre: string
+    thumbnail: string
 }
-export const gameTableColumns: ColumnsType<DataType> = [
+export const gameTableColumns: ColumnsType = [
     {
-        title: 'Name',
-        dataIndex: 'name',
-        key: 'name',
+        title: 'Title',
+        dataIndex: 'title',
+        key: 'title',
     },
     {
         title: 'Date',
@@ -29,8 +30,8 @@ export const gameTableColumns: ColumnsType<DataType> = [
         key: 'genre',
     },
     {
-        title: 'Image',
-        dataIndex: 'image',
-        key: 'image',
+        title: 'Thumbnail',
+        dataIndex: 'thumbnail',
+        key: 'thumbnail',
     },
 ]

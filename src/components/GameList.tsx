@@ -1,20 +1,21 @@
 import { Table } from 'antd'
-import { FC } from 'react'
+import { FC, useMemo } from 'react'
 
-import { gameTableColumns, type DataType } from '../constants.ts'
+import { gameTableColumns } from '../constants.ts'
+import { Game } from '../common/types.ts'
+import { mapGameDataToTableData } from '../common/utils.ts'
 
 type Props = {
-    dataSource: DataType[]
+    games: Game[]
 }
 
-const GameList: FC<Props> = ({ dataSource }) => {
+const GameList: FC<Props> = ({ games }) => {
+    const dataSource = useMemo(
+        () => games.map((game) => mapGameDataToTableData(game)),
+        [games]
+    )
+
     return <Table dataSource={dataSource} columns={gameTableColumns} />
 }
 
 export default GameList
-
-// название
-// дата релиза (в российском формате)
-// издатель
-// жанр
-// картинка
