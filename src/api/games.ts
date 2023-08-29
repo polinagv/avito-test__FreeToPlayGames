@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { stringify } from 'qs'
-import { type Game } from '../common/types.ts'
+import { type GameShort, type Game } from '../common/types.ts'
 
 const API_BASE_URL = 'https://free-to-play-games-database.p.rapidapi.com/api/'
 
@@ -25,10 +25,11 @@ export type ListQueryParams =
     | object
 
 export const getGamesList = (params: ListQueryParams) =>
-    net.get<Game[]>('/games', {
+    net.get<GameShort[]>('/games', {
         params,
         paramsSerializer: (params) =>
             stringify(params, { encode: false, arrayFormat: 'repeat' }),
     })
 
-export const getGameById = (id: string) => net.get<Game>(`/game?id=${id}`)
+export const getGameById = (id: string | undefined) =>
+    net.get<Game>(`/game?id=${id}`)

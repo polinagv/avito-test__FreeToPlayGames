@@ -1,7 +1,7 @@
-import { Game } from './types.ts'
+import { GameShort } from './types.ts'
 import { DataType } from '../constants.tsx'
 
-export const mapGameDataToTableData = (game: Game): DataType => ({
+export const mapGameDataToTableData = (game: GameShort): DataType => ({
     key: game.id,
     title: game.title,
     'release-date': game.release_date,

@@ -1,15 +1,15 @@
 import { Button, Image, Table, TableProps } from 'antd'
 
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { FC, useMemo, Dispatch, SetStateAction } from 'react'
 
 import { categoryFilters, DataType, platformFilters } from '../constants.tsx'
-import { Game } from '../common/types.ts'
+import { GameShort } from '../common/types.ts'
 import { mapGameDataToTableData } from '../common/utils.ts'
 import { ListQueryParams } from '../api/games.ts'
 
 type Props = {
-    games: Game[]
+    games: GameShort[]
     setParams: Dispatch<SetStateAction<ListQueryParams>>
 }
 
