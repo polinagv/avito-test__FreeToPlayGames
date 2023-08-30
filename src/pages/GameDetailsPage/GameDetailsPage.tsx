@@ -4,6 +4,7 @@ import GameNotFound from './GameNotFound/GameNotFound.tsx'
 
 import { useFetchGameById } from 'common/hooks.ts'
 import Spinner from 'components/Spinner'
+import ReturnButton from 'components/ReturnButton'
 
 const GameDetailsPage = () => {
     const { id } = useParams<{ id: string }>()
@@ -13,7 +14,12 @@ const GameDetailsPage = () => {
         return <Spinner />
     }
 
-    return game ? <GameItem game={game} /> : <GameNotFound />
+    return (
+        <>
+            <ReturnButton to={'/'} />
+            {game ? <GameItem game={game} /> : <GameNotFound />}
+        </>
+    )
 }
 
 export default GameDetailsPage
