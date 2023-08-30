@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { GameShort, Game } from './types.ts'
+import { Game, GameShort } from './types.ts'
 import {
     getGameById,
     getGamesList,

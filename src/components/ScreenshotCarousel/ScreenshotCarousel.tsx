@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { Carousel, Image } from 'antd'
-import { Game } from '../../common/types.ts'
+import { Game } from 'common/types.ts'
 
 type Props = {
     screenshots: Game['screenshots']

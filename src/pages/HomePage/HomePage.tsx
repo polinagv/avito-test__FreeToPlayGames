@@ -1,9 +1,9 @@
 import GameList from './GameList/GameList.tsx'
 
-import { useFetchGamesList } from '../../common/hooks.ts'
+import { useFetchGamesList } from 'common/hooks.ts'
 import { useState } from 'react'
-import { type ListQueryParams } from '../../api/games.ts'
-import Spinner from '../../components/Spinner/Spinner.tsx'
+import { type ListQueryParams } from 'api/games.ts'
+import Spinner from 'components/Spinner/Spinner.tsx'
 
 const HomePage = () => {
     const [params, setParams] = useState<ListQueryParams>({})

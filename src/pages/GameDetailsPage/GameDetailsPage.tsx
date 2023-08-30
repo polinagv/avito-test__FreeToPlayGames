@@ -1,8 +1,9 @@
 import GameItem from './GameItem/GameItem.tsx'
-import { useFetchGameById } from '../../common/hooks.ts'
 import { useParams } from 'react-router-dom'
 import GameNotFound from './GameNotFound/GameNotFound.tsx'
-import Spinner from '../../components/Spinner/Spinner.tsx'
+
+import { useFetchGameById } from 'common/hooks.ts'
+import Spinner from 'components/Spinner'
 
 const GameDetailsPage = () => {
     const { id } = useParams<{ id: string }>()
