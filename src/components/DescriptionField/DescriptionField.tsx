@@ -19,7 +19,7 @@ type Props = {
     content: string
 }
 
-const DescriptionField = ({ label = '', content = '' }: Props) => {
+const DescriptionField = ({ label = '', content = 'No data' }: Props) => {
     return (
         <DescriptionFieldWrap>
             {label?.length > 0 && (

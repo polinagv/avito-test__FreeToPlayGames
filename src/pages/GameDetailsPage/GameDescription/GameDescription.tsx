@@ -12,19 +12,19 @@ type Props = {
 const GameDescription = ({ game }: Props) => {
     return (
         <DescriptionWrap>
-            <Image src={game.thumbnail} />
-            <DescriptionField content={game.description} />
-            <DescriptionField label="Title" content={game.title} />
+            <Image src={game?.thumbnail} />
+            <DescriptionField content={game?.description} />
+            <DescriptionField label="Title" content={game?.title} />
             <DescriptionField
                 label="Release date"
-                content={normalizeDate(game.release_date)}
+                content={normalizeDate(game?.release_date)}
             />
-            <DescriptionField label="Publisher" content={game.publisher} />
-            <DescriptionField label="Developer" content={game.developer} />
-            <DescriptionField label="Genre" content={game.genre} />
+            <DescriptionField label="Publisher" content={game?.publisher} />
+            <DescriptionField label="Developer" content={game?.developer} />
+            <DescriptionField label="Genre" content={game?.genre} />
 
             <SystemReqDescription
-                requirements={game.minimum_system_requirements}
+                requirements={game?.minimum_system_requirements}
             />
         </DescriptionWrap>
     )

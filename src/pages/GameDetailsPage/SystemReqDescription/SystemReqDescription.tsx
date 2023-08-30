@@ -13,16 +13,16 @@ const SystemReqDescription = ({ requirements }: Props) => (
     <>
         <DescriptionHeader>Minimum system requirements</DescriptionHeader>
         <DescriptionWrap>
-            <DescriptionField label="OS" content={requirements.os} />
+            <DescriptionField label="OS" content={requirements?.os} />
             <DescriptionField
                 label="Graphics"
-                content={requirements.graphics}
+                content={requirements?.graphics}
             />
-            <DescriptionField label="Storage" content={requirements.storage} />
-            <DescriptionField label="Memory" content={requirements.memory} />
+            <DescriptionField label="Storage" content={requirements?.storage} />
+            <DescriptionField label="Memory" content={requirements?.memory} />
             <DescriptionField
                 label="Processor"
-                content={requirements.processor}
+                content={requirements?.processor}
             />
         </DescriptionWrap>
     </>
