@@ -23,8 +23,12 @@ const GameList = ({ games, setParams }: Props) => {
     const handleChange: TableProps<DataType>['onChange'] = (
         _pagination,
         filters,
-        sorter
+        sorter,
+        extra
     ) => {
+        if (extra.action === 'paginate') {
+            return
+        }
         setParams((prevState) => ({
             ...prevState,
             'sort-by':
@@ -38,7 +42,14 @@ const GameList = ({ games, setParams }: Props) => {
     }
 
     return (
-        <Table dataSource={dataSource} onChange={handleChange} size={'small'}>
+        <Table
+            dataSource={dataSource}
+            onChange={handleChange}
+            size={'small'}
+            locale={{
+                emptyText: 'No games found',
+            }}
+        >
             <Table.Column
                 title="Title"
                 dataIndex="title"
@@ -92,6 +103,12 @@ const GameList = ({ games, setParams }: Props) => {
                         alt={record.title}
                         width={200}
                         src={record.thumbnail}
+                        placeholder={
+                            <Image
+                                alt={'placeholder'}
+                                src="public/placeholder.svg"
+                            />
+                        }
                     />
                 )}
                 responsive={['xs', 'sm', 'md', 'lg', 'xl', 'xxl']}

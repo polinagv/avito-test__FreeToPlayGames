@@ -25,7 +25,7 @@ export const GameDetailsPageWrap = styled.div`
     padding: 50px 70px;
 
     @media (max-width: 468px) {
-        padding: 30px 0px;
+        padding: 30px 0;
         font-size: 0.8rem;
     }
 `
