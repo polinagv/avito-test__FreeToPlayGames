@@ -5,7 +5,7 @@ import { Dispatch, SetStateAction, useMemo } from 'react'
 
 import { categoryFilters, DataType, platformFilters } from 'constants.tsx'
 import { GameShort } from 'common/types.ts'
-import { mapGameDataToTableData } from 'common/utils.ts'
+import { mapGameDataToTableData, normalizeDate } from 'common/utils.ts'
 import { ListQueryParams } from 'api/games.ts'
 
 type Props = {
@@ -59,6 +59,7 @@ const GameList = ({ games, setParams }: Props) => {
                 key="release-date"
                 sorter
                 responsive={['lg', 'xl', 'xxl']}
+                render={(value) => normalizeDate(value)}
             />
             <Table.Column
                 title="Genre"
