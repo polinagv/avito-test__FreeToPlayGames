@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import { Game } from 'common/types.ts'
 import ScreenshotCarousel from 'components/ScreenshotCarousel/ScreenshotCarousel.tsx'
 import GameDescription from '../GameDescription/GameDescription.tsx'
@@ -12,7 +11,7 @@ const GameItemWrap = styled.div`
 type Props = {
     game: Game
 }
-const GameItem: FC<Props> = ({ game }) => {
+const GameItem = ({ game }: Props) => {
     return (
         <GameItemWrap>
             <GameDescription game={game} />

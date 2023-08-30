@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import styled from 'styled-components'
 import { Image } from 'antd'
 
@@ -27,7 +26,7 @@ type Props = {
     image?: boolean
 }
 
-const DescriptionField: FC<Props> = ({ label, content, image = false }) => {
+const DescriptionField = ({ label, content, image = false }: Props) => {
     return image ? (
         <ImageWrap>
             <Image width={500} src={content} key={content} />

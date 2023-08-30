@@ -1,7 +1,7 @@
 import { Button, Image, Table, TableProps } from 'antd'
 
 import { useNavigate } from 'react-router-dom'
-import { Dispatch, FC, SetStateAction, useMemo } from 'react'
+import { Dispatch, SetStateAction, useMemo } from 'react'
 
 import { categoryFilters, DataType, platformFilters } from 'constants.tsx'
 import { GameShort } from 'common/types.ts'
@@ -13,7 +13,7 @@ type Props = {
     setParams: Dispatch<SetStateAction<ListQueryParams>>
 }
 
-const GameList: FC<Props> = ({ games, setParams }) => {
+const GameList = ({ games, setParams }: Props) => {
     const navigate = useNavigate()
     const dataSource = useMemo(
         () => games.map((game) => mapGameDataToTableData(game)),

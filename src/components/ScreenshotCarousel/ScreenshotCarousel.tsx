@@ -1,11 +1,10 @@
-import { FC } from 'react'
 import { Carousel, Image } from 'antd'
 import { Game } from 'common/types.ts'
 
 type Props = {
     screenshots: Game['screenshots']
 }
-const ScreenshotCarousel: FC<Props> = ({ screenshots }) => {
+const ScreenshotCarousel = ({ screenshots }: Props) => {
     return (
         <Carousel autoplay>
             {screenshots.map((screen) => (

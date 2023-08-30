@@ -1,5 +1,5 @@
 import { Game } from 'common/types.ts'
-import { FC } from 'react'
+
 import DescriptionField from 'components/DescriptionField/DescriptionField.tsx'
 import { normalizeDate } from 'common/utils.ts'
 import { DescriptionWrap } from 'pages/GameDetailsPage/styles.ts'
@@ -8,7 +8,7 @@ import SystemReqDescription from 'pages/GameDetailsPage/SystemReqDescription'
 type Props = {
     game: Game
 }
-const GameDescription: FC<Props> = ({ game }) => {
+const GameDescription = ({ game }: Props) => {
     return (
         <DescriptionWrap>
             <DescriptionField content={game.thumbnail} image />
