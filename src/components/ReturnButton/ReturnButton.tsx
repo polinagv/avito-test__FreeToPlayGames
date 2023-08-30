@@ -1,11 +1,13 @@
 import { Button } from 'antd'
 import { ArrowLeftOutlined } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
+import { type ReactNode } from 'react'
 
 type Props = {
     to: string
+    children?: ReactNode
 }
-const ReturnButton = ({ to }: Props) => {
+const ReturnButton = ({ to, children = 'Go back' }: Props) => {
     const navigate = useNavigate()
 
     return (
@@ -17,7 +19,7 @@ const ReturnButton = ({ to }: Props) => {
                 navigate(to)
             }}
         >
-            Back
+            {children}
         </Button>
     )
 }

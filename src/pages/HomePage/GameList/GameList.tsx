@@ -38,7 +38,7 @@ const GameList = ({ games, setParams }: Props) => {
     }
 
     return (
-        <Table dataSource={dataSource} onChange={handleChange}>
+        <Table dataSource={dataSource} onChange={handleChange} size={'small'}>
             <Table.Column
                 title="Title"
                 dataIndex="title"
@@ -58,6 +58,7 @@ const GameList = ({ games, setParams }: Props) => {
                 dataIndex="release-date"
                 key="release-date"
                 sorter
+                responsive={['lg', 'xl', 'xxl']}
             />
             <Table.Column
                 title="Genre"
@@ -65,6 +66,7 @@ const GameList = ({ games, setParams }: Props) => {
                 key="category"
                 filters={categoryFilters}
                 filterMode="menu"
+                responsive={['lg', 'xl', 'xxl']}
             />
             <Table.Column
                 title="Platform"
@@ -72,11 +74,13 @@ const GameList = ({ games, setParams }: Props) => {
                 key="platform"
                 filters={platformFilters}
                 filterMode="menu"
+                responsive={['md', 'lg', 'xl', 'xxl']}
             />
             <Table.Column
                 title="Publisher"
                 dataIndex="publisher"
                 key="publisher"
+                responsive={['md', 'lg', 'xl', 'xxl']}
             />
             <Table.Column
                 title="Thumbnail"
@@ -89,6 +93,7 @@ const GameList = ({ games, setParams }: Props) => {
                         src={record.thumbnail}
                     />
                 )}
+                responsive={['xs', 'sm', 'md', 'lg', 'xl', 'xxl']}
             />
         </Table>
     )

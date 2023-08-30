@@ -4,6 +4,7 @@ import DescriptionField from 'components/DescriptionField/DescriptionField.tsx'
 import { normalizeDate } from 'common/utils.ts'
 import { DescriptionWrap } from 'pages/GameDetailsPage/styles.ts'
 import SystemReqDescription from 'pages/GameDetailsPage/SystemReqDescription'
+import { Image } from 'antd'
 
 type Props = {
     game: Game
@@ -11,7 +12,8 @@ type Props = {
 const GameDescription = ({ game }: Props) => {
     return (
         <DescriptionWrap>
-            <DescriptionField content={game.thumbnail} image />
+            <Image src={game.thumbnail} />
+            <DescriptionField content={game.description} />
             <DescriptionField label="Title" content={game.title} />
             <DescriptionField
                 label="Release date"

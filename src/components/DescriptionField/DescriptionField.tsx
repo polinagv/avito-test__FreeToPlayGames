@@ -1,39 +1,30 @@
 import styled from 'styled-components'
-import { Image } from 'antd'
 
 const DescriptionFieldWrap = styled.li`
     display: flex;
     gap: 30px;
-    justify-content: space-between;
 `
 
 const DescriptionFieldLabel = styled.span`
     color: rgba(0, 0, 0, 0.45);
+    min-width: 104px;
 `
 
 const DescriptionFieldContent = styled.span`
     color: rgba(0, 0, 0, 1);
 `
 
-const ImageWrap = styled.div`
-    display: flex;
-    justify-content: center;
-`
-
 type Props = {
     label?: string
     content: string
-    image?: boolean
 }
 
-const DescriptionField = ({ label, content, image = false }: Props) => {
-    return image ? (
-        <ImageWrap>
-            <Image width={500} src={content} key={content} />
-        </ImageWrap>
-    ) : (
+const DescriptionField = ({ label = '', content = '' }: Props) => {
+    return (
         <DescriptionFieldWrap>
-            <DescriptionFieldLabel>{label}</DescriptionFieldLabel>
+            {label?.length > 0 && (
+                <DescriptionFieldLabel>{label}</DescriptionFieldLabel>
+            )}
             <DescriptionFieldContent>{content}</DescriptionFieldContent>
         </DescriptionFieldWrap>
     )
