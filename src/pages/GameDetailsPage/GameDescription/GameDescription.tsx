@@ -1,7 +1,7 @@
-import { Game } from '../common/types.ts'
+import { Game } from '../../../common/types.ts'
 import { FC } from 'react'
-import DescriptionField from './DescriptionField.tsx'
-import { normalizeDate } from '../common/utils.ts'
+import DescriptionField from '../../../components/DescriptionField/DescriptionField.tsx'
+import { normalizeDate } from '../../../common/utils.ts'
 import styled from 'styled-components'
 
 const DesriptionWrap = styled.ul`

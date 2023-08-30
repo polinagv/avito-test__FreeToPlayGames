@@ -1,7 +1,7 @@
 import { FC } from 'react'
-import { Game } from '../common/types.ts'
-import ScreenshotCarousel from './ScreenshotCarousel.tsx'
-import GameDescription from './GameDescription.tsx'
+import { Game } from '../../../common/types.ts'
+import ScreenshotCarousel from '../../../components/ScreenshotCarousel/ScreenshotCarousel.tsx'
+import GameDescription from '../GameDescription/GameDescription.tsx'
 import styled from 'styled-components'
 
 const GameItemWrap = styled.div`
