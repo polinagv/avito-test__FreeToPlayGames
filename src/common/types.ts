@@ -1,3 +1,13 @@
+export type DataType = {
+    key: number
+    title: string
+    'release-date': Date
+    publisher: string
+    category: string
+    thumbnail: string
+    platform: string
+}
+
 export type GameShort = {
     id: number
     title: string

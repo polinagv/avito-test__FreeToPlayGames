@@ -31,5 +31,5 @@ export const getGamesList = (params: ListQueryParams) =>
             stringify(params, { encode: false, arrayFormat: 'repeat' }),
     })
 
-export const getGameById = (id: string | undefined) =>
+export const getGameById = (id: Game['id'] | undefined) =>
     net.get<Game>(`/game?id=${id}`)

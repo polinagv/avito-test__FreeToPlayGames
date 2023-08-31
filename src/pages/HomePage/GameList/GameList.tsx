@@ -3,8 +3,8 @@ import { Button, Image, Table, TableProps } from 'antd'
 import { useNavigate } from 'react-router-dom'
 import { Dispatch, SetStateAction, useMemo } from 'react'
 
-import { categoryFilters, DataType, platformFilters } from 'constants.tsx'
-import { GameShort } from 'common/types.ts'
+import { categoryFilters, platformFilters } from 'constants.tsx'
+import { DataType, GameShort } from 'common/types.ts'
 import { mapGameDataToTableData, normalizeDate } from 'common/utils.ts'
 import { ListQueryParams } from 'api/games.ts'
 
@@ -29,13 +29,16 @@ const GameList = ({ games, setParams }: Props) => {
         if (extra.action === 'paginate') {
             return
         }
+
+        const sortEnabled = Boolean(sorter.order)
+        const filedName = sorter.columnKey
+
+        const sortBy =
+            sortEnabled && (filedName === 'title' ? 'alphabetical' : filedName)
+
         setParams((prevState) => ({
             ...prevState,
-            'sort-by':
-                sorter.order &&
-                (sorter.columnKey === 'title'
-                    ? 'alphabetical'
-                    : sorter.columnKey || undefined),
+            'sort-by': sortBy || undefined,
             category: filters.category || undefined,
             platform: filters.platform || undefined,
         }))

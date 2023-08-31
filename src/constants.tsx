@@ -1,12 +1,5 @@
-export type DataType = {
-    key: number
-    title: string
-    'release-date': Date
-    publisher: string
-    category: string
-    thumbnail: string
-    platform: string
-}
+// 5 minutes in miliseconds
+export const FIVE_MINUTES = 300000
 
 export const categoryFilters = [
     {

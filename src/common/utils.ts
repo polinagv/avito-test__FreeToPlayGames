@@ -1,5 +1,4 @@
-import { type GameShort } from './types.ts'
-import { DataType } from '../constants.tsx'
+import { DataType, type GameShort } from './types.ts'
 
 export const mapGameDataToTableData = (game: GameShort): DataType => ({
     key: game.id,
@@ -13,3 +12,5 @@ export const mapGameDataToTableData = (game: GameShort): DataType => ({
 
 export const normalizeDate = (date: Date) =>
     new Date(date).toLocaleDateString('ru-Ru')
+
+export const getCurrentTimestamp = () => new Date().getTime()

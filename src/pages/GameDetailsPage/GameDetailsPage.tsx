@@ -2,10 +2,11 @@ import GameItem from './GameItem/GameItem.tsx'
 import { useParams } from 'react-router-dom'
 import GameNotFound from './GameNotFound/GameNotFound.tsx'
 
-import { useFetchGameById, useShowErrorNotification } from 'common/hooks.ts'
+import { useShowErrorNotification } from 'common/hooks.ts'
 import Spinner from 'components/Spinner'
 import ReturnButton from 'components/ReturnButton'
 import { GameDetailsPageWrap } from 'pages/GameDetailsPage/styles.ts'
+import { useFetchGameById } from 'pages/GameDetailsPage/hooks.ts'
 
 const GameDetailsPage = () => {
     const { id } = useParams<{ id: string }>()
