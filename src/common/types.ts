@@ -1,5 +1,7 @@
+import { type Key } from 'react'
+
 export type DataType = {
-    key: number
+    key: Key
     title: string
     'release-date': Date
     publisher: string

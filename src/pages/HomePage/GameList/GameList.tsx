@@ -8,6 +8,7 @@ import { DataType, GameShort } from 'common/types.ts'
 import { mapGameDataToTableData, normalizeDate } from 'common/utils.ts'
 import { ListQueryParams } from 'api/games.ts'
 import { LoadingState } from 'common/hooks.ts'
+import { SorterResult } from 'antd/es/table/interface'
 
 type Props = {
     games: GameShort[]
@@ -32,8 +33,11 @@ const GameList = ({ games, setParams, loadingState }: Props) => {
             return
         }
 
-        const sortEnabled = Boolean(sorter.order)
-        const filedName = sorter.columnKey
+        // smth went wrong with this type
+        const sorterTyped = sorter as SorterResult<DataType>
+
+        const sortEnabled = Boolean(sorterTyped.order)
+        const filedName = sorterTyped.columnKey
 
         const sortBy =
             sortEnabled && (filedName === 'title' ? 'alphabetical' : filedName)
