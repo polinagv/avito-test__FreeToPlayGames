@@ -2,54 +2,57 @@
 export const FIVE_MINUTES = 300000
 export const FILTERS_LOCAL_S_KEY = 'filters'
 
+export const initialParamsState = {}
+
 export const categoryFilters = [
     {
-        text: 'Action',
         value: 'action',
+        label: 'Action',
     },
     {
-        text: 'Mmorpg',
         value: 'mmorpg',
+        label: 'MMORPG',
     },
     {
-        text: 'Shooter',
         value: 'shooter',
+        label: 'Shooter',
     },
     {
-        text: 'Sports',
         value: 'sports',
+        label: 'Sports',
     },
     {
-        text: 'Anime',
         value: 'anime',
+        label: 'Anime',
     },
 ]
+
 export const platformFilters = [
     {
-        text: 'PC',
+        label: 'PC',
         value: 'pc',
     },
     {
-        text: 'Browser',
+        label: 'Browser',
         value: 'browser',
     },
 ]
 
 export const sortFields = [
     {
-        text: 'Relevance',
+        label: 'Relevance',
         value: 'relevance',
     },
     {
-        text: 'Popularity',
+        label: 'Popularity',
         value: 'popularity',
     },
     {
-        text: 'Release Date',
+        label: 'Release Date',
         value: 'release-date',
     },
     {
-        text: 'Alphabetical',
+        label: 'Alphabetical',
         value: 'alphabetical',
     },
 ]

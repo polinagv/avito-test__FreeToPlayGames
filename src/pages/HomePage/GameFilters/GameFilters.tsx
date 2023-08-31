@@ -1,7 +1,12 @@
 import { Select, Form, Button, type FormInstance } from 'antd'
 import { Dispatch, SetStateAction, useRef } from 'react'
 
-import { categoryFilters, platformFilters, sortFields } from 'constants.tsx'
+import {
+    categoryFilters,
+    initialParamsState,
+    platformFilters,
+    sortFields,
+} from 'constants.tsx'
 import { FiltersFlex, FormItemWrap } from 'pages/HomePage/styles.ts'
 import { LoadingState } from 'common/hooks.ts'
 import { Params } from 'common/types.ts'
@@ -34,17 +39,20 @@ const GameFilters = ({ setParams, loadingState }: Props) => {
 
     const onReset = () => {
         formRef.current?.resetFields()
-        setParams({})
-        setFiltersToLocaleStorage({})
+        setParams(initialParamsState)
+        setFiltersToLocaleStorage(initialParamsState)
     }
 
     return (
         <Form
             name="filters"
-            initialValues={filtersFromLocalStorage || {}}
+            initialValues={filtersFromLocalStorage || initialParamsState}
             autoComplete="off"
             onFinish={onFinishHandler}
             ref={formRef}
+            onChange={(val) => {
+                console.log(val)
+            }}
         >
             <FiltersFlex>
                 <FormItemWrap label="Genre" name="category">
