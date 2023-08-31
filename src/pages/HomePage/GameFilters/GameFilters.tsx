@@ -50,9 +50,6 @@ const GameFilters = ({ setParams, loadingState }: Props) => {
             autoComplete="off"
             onFinish={onFinishHandler}
             ref={formRef}
-            onChange={(val) => {
-                console.log(val)
-            }}
         >
             <FiltersFlex>
                 <FormItemWrap label="Genre" name="category">
@@ -89,16 +86,16 @@ const GameFilters = ({ setParams, loadingState }: Props) => {
                     >
                         Search
                     </Button>
-                </FormItemWrap>
 
-                <Button
-                    loading={loadingState === 'pending'}
-                    type="dashed"
-                    htmlType="reset"
-                    onClick={onReset}
-                >
-                    Reset
-                </Button>
+                    <Button
+                        loading={loadingState === 'pending'}
+                        type="dashed"
+                        htmlType="reset"
+                        onClick={onReset}
+                    >
+                        Reset
+                    </Button>
+                </FormItemWrap>
             </FiltersFlex>
         </Form>
     )
