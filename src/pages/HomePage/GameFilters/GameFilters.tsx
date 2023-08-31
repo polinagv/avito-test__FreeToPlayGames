@@ -20,7 +20,7 @@ type FormFields = {
 const GameFilters = ({ setParams, loadingState }: Props) => {
     const onFinishHandler = (values: FormFields) => {
         const { category, platform, sortBy } = values
-        console.log(values)
+
         setParams((prevState) => ({
             ...prevState,
             'sort-by': sortBy || undefined,
