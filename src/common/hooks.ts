@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { notification } from 'antd'
 
-type LoadingState = 'pending' | 'resolved' | 'rejected'
+export type LoadingState = 'pending' | 'resolved' | 'rejected'
 export const useLoadingState = () => useState<LoadingState>('pending')
 
 export const useShowErrorNotification = ({

@@ -7,13 +7,15 @@ import { categoryFilters, platformFilters } from 'constants.tsx'
 import { DataType, GameShort } from 'common/types.ts'
 import { mapGameDataToTableData, normalizeDate } from 'common/utils.ts'
 import { ListQueryParams } from 'api/games.ts'
+import { LoadingState } from 'common/hooks.ts'
 
 type Props = {
     games: GameShort[]
     setParams: Dispatch<SetStateAction<ListQueryParams>>
+    loadingState: LoadingState
 }
 
-const GameList = ({ games, setParams }: Props) => {
+const GameList = ({ games, setParams, loadingState }: Props) => {
     const navigate = useNavigate()
     const dataSource = useMemo(
         () => games.map((game) => mapGameDataToTableData(game)),
@@ -46,6 +48,7 @@ const GameList = ({ games, setParams }: Props) => {
 
     return (
         <Table
+            loading={loadingState === 'pending'}
             dataSource={dataSource}
             onChange={handleChange}
             size={'small'}

@@ -3,7 +3,6 @@ import GameList from './GameList/GameList.tsx'
 import { useShowErrorNotification } from 'common/hooks.ts'
 import { useState } from 'react'
 import { type ListQueryParams } from 'api/games.ts'
-import Spinner from 'components/Spinner/Spinner.tsx'
 import { HomePageWrap } from 'pages/HomePage/styles.ts'
 
 import { useFetchGamesList } from 'pages/HomePage/hooks.ts'
@@ -15,14 +14,14 @@ const HomePage = () => {
         loadingState: gamesLoadingState,
     })
 
-    if (gamesLoadingState === 'pending') {
-        return <Spinner />
-    }
-
     return (
         <HomePageWrap>
             {notification}
-            <GameList games={games} setParams={setParams} />
+            <GameList
+                games={games}
+                setParams={setParams}
+                loadingState={gamesLoadingState}
+            />
         </HomePageWrap>
     )
 }
