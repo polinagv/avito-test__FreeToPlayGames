@@ -33,3 +33,22 @@ export const platformFilters = [
         value: 'browser',
     },
 ]
+
+export const sortFields = [
+    {
+        text: 'Relevance',
+        value: 'relevance',
+    },
+    {
+        text: 'Popularity',
+        value: 'popularity',
+    },
+    {
+        text: 'Release Date',
+        value: 'release-date',
+    },
+    {
+        text: 'Alphabetical',
+        value: 'alphabetical',
+    },
+]
