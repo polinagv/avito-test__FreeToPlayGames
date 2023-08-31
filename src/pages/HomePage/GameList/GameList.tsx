@@ -121,7 +121,7 @@ const GameList = ({ games, setParams, loadingState }: Props) => {
                         }
                     />
                 )}
-                responsive={['xs', 'sm', 'md', 'lg', 'xl', 'xxl']}
+                responsive={['sm', 'md', 'lg', 'xl', 'xxl']}
             />
         </Table>
     )
