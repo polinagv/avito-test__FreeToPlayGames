@@ -1,5 +1,6 @@
 // 5 minutes in miliseconds
 export const FIVE_MINUTES = 300000
+export const FILTERS_LOCAL_S_KEY = 'filters'
 
 export const categoryFilters = [
     {

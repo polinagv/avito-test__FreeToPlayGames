@@ -1,15 +1,19 @@
 import { useState } from 'react'
 
 import { useShowErrorNotification } from 'common/hooks.ts'
-import { type ListQueryParams } from 'api/games.ts'
 import { HomePageWrap } from 'pages/HomePage/styles.ts'
 import { useFetchGamesList } from 'pages/HomePage/hooks.ts'
+import { getFiltersFromLocaleStorage } from 'cache/filtersCache.ts'
+import { Params } from 'common/types.ts'
 
 import GameList from './GameList/GameList.tsx'
 
 const HomePage = () => {
-    const [params, setParams] = useState<ListQueryParams>({})
+    const filtersFromLocaleStorage = getFiltersFromLocaleStorage()
+    const [params, setParams] = useState<Params>(filtersFromLocaleStorage || {})
+
     const { games, gamesLoadingState } = useFetchGamesList(params)
+
     const notification = useShowErrorNotification({
         loadingState: gamesLoadingState,
     })

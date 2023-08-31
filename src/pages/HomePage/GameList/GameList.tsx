@@ -1,17 +1,15 @@
-import { Button, Image, Table, TableProps } from 'antd'
+import { Button, Image, Table } from 'antd'
 import { useNavigate } from 'react-router-dom'
 import { Dispatch, SetStateAction, useMemo } from 'react'
-import { SorterResult } from 'antd/es/table/interface'
 
-import { DataType, GameShort } from 'common/types.ts'
+import { DataType, Params, GameShort } from 'common/types.ts'
 import { mapGameDataToTableData, normalizeDate } from 'common/utils.ts'
-import { ListQueryParams } from 'api/games.ts'
 import { LoadingState } from 'common/hooks.ts'
 import GameFilters from 'pages/HomePage/GameFilters'
 
 type Props = {
     games: GameShort[]
-    setParams: Dispatch<SetStateAction<ListQueryParams>>
+    setParams: Dispatch<SetStateAction<Params>>
     loadingState: LoadingState
 }
 
@@ -22,40 +20,12 @@ const GameList = ({ games, setParams, loadingState }: Props) => {
         [games]
     )
 
-    const handleChange: TableProps<DataType>['onChange'] = (
-        _pagination,
-        filters,
-        sorter,
-        extra
-    ) => {
-        if (extra.action === 'paginate') {
-            return
-        }
-
-        // smth went wrong with this type
-        const sorterTyped = sorter as SorterResult<DataType>
-
-        const sortEnabled = Boolean(sorterTyped.order)
-        const filedName = sorterTyped.columnKey
-
-        const sortBy =
-            sortEnabled && (filedName === 'title' ? 'alphabetical' : filedName)
-
-        setParams((prevState) => ({
-            ...prevState,
-            'sort-by': sortBy || undefined,
-            category: filters.category || undefined,
-            platform: filters.platform || undefined,
-        }))
-    }
-
     return (
         <>
             <GameFilters setParams={setParams} loadingState={loadingState} />
             <Table
                 loading={loadingState === 'pending'}
                 dataSource={dataSource}
-                onChange={handleChange}
                 size={'small'}
                 locale={{
                     emptyText: 'No games found',

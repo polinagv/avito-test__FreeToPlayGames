@@ -1,5 +1,11 @@
 import { type Key } from 'react'
 
+export type Params = {
+    sortBy?: string
+    category?: string[]
+    platform?: string[]
+}
+
 export type DataType = {
     key: Key
     title: string

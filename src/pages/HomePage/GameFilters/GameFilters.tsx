@@ -1,40 +1,50 @@
-import { Select, Form, Button } from 'antd'
-import { Dispatch, SetStateAction } from 'react'
+import { Select, Form, Button, type FormInstance } from 'antd'
+import { Dispatch, SetStateAction, useRef } from 'react'
 
 import { categoryFilters, platformFilters, sortFields } from 'constants.tsx'
-import { ListQueryParams } from 'api/games.ts'
 import { FiltersFlex, FormItemWrap } from 'pages/HomePage/styles.ts'
 import { LoadingState } from 'common/hooks.ts'
+import { Params } from 'common/types.ts'
+import {
+    getFiltersFromLocaleStorage,
+    setFiltersToLocaleStorage,
+} from 'cache/filtersCache.ts'
 
 type Props = {
-    setParams: Dispatch<SetStateAction<ListQueryParams>>
+    setParams: Dispatch<SetStateAction<Params>>
     loadingState: LoadingState
 }
 
-type FormFields = {
-    sortBy?: string
-    category?: string[]
-    platform?: string[]
-}
-
 const GameFilters = ({ setParams, loadingState }: Props) => {
-    const onFinishHandler = (values: FormFields) => {
+    const formRef = useRef<FormInstance>(null)
+    const filtersFromLocalStorage = getFiltersFromLocaleStorage()
+
+    const onFinishHandler = (values: Params) => {
         const { category, platform, sortBy } = values
 
         setParams((prevState) => ({
             ...prevState,
-            'sort-by': sortBy || undefined,
-            category: category || undefined,
-            platform: platform || undefined,
+            sortBy,
+            category,
+            platform,
         }))
+
+        setFiltersToLocaleStorage({ category, platform, sortBy })
+    }
+
+    const onReset = () => {
+        formRef.current?.resetFields()
+        setParams({})
+        setFiltersToLocaleStorage({})
     }
 
     return (
         <Form
             name="filters"
-            initialValues={{}}
+            initialValues={filtersFromLocalStorage || {}}
             autoComplete="off"
             onFinish={onFinishHandler}
+            ref={formRef}
         >
             <FiltersFlex>
                 <FormItemWrap label="Genre" name="category">
@@ -72,6 +82,15 @@ const GameFilters = ({ setParams, loadingState }: Props) => {
                         Search
                     </Button>
                 </FormItemWrap>
+
+                <Button
+                    loading={loadingState === 'pending'}
+                    type="dashed"
+                    htmlType="reset"
+                    onClick={onReset}
+                >
+                    Reset
+                </Button>
             </FiltersFlex>
         </Form>
     )
