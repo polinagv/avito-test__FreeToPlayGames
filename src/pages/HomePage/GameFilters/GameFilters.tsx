@@ -1,6 +1,7 @@
 import { Select, Form, Button } from 'antd'
-import { categoryFilters, platformFilters, sortFields } from 'constants.tsx'
 import { Dispatch, SetStateAction } from 'react'
+
+import { categoryFilters, platformFilters, sortFields } from 'constants.tsx'
 import { ListQueryParams } from 'api/games.ts'
 import { FiltersFlex, FormItemWrap } from 'pages/HomePage/styles.ts'
 import { LoadingState } from 'common/hooks.ts'

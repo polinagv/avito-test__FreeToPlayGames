@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import styled from 'styled-components'
+
 import HomePage from './pages/HomePage/HomePage.tsx'
 import GameDetailsPage from './pages/GameDetailsPage/GameDetailsPage.tsx'
-import styled from 'styled-components'
 
 const BaseStylesWrap = styled.div`
     font-family: 'Roboto', sans-serif;

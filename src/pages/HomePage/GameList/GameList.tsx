@@ -1,14 +1,12 @@
 import { Button, Image, Table, TableProps } from 'antd'
-
 import { useNavigate } from 'react-router-dom'
 import { Dispatch, SetStateAction, useMemo } from 'react'
+import { SorterResult } from 'antd/es/table/interface'
 
-import { categoryFilters, platformFilters } from 'constants.tsx'
 import { DataType, GameShort } from 'common/types.ts'
 import { mapGameDataToTableData, normalizeDate } from 'common/utils.ts'
 import { ListQueryParams } from 'api/games.ts'
 import { LoadingState } from 'common/hooks.ts'
-import { SorterResult } from 'antd/es/table/interface'
 import GameFilters from 'pages/HomePage/GameFilters'
 
 type Props = {

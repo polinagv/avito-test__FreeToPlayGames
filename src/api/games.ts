@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { stringify } from 'qs'
+
 import { type Game, type GameShort } from '../common/types.ts'
 
 const API_BASE_URL = 'https://free-to-play-games-database.p.rapidapi.com/api/'

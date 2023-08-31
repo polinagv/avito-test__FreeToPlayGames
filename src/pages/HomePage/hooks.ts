@@ -1,5 +1,6 @@
-import { getGamesList, ListQueryParams } from 'api/games.ts'
 import { useEffect, useState } from 'react'
+
+import { getGamesList, ListQueryParams } from 'api/games.ts'
 import { GameShort } from 'common/types.ts'
 import { useLoadingState } from 'common/hooks.ts'
 

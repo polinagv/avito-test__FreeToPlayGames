@@ -1,10 +1,10 @@
-import { Game } from 'common/types.ts'
+import { Image } from 'antd'
 
+import { Game } from 'common/types.ts'
 import DescriptionField from 'components/DescriptionField/DescriptionField.tsx'
 import { normalizeDate } from 'common/utils.ts'
 import { DescriptionWrap } from 'pages/GameDetailsPage/styles.ts'
 import SystemReqDescription from 'pages/GameDetailsPage/SystemReqDescription'
-import { Image } from 'antd'
 
 type Props = {
     game: Game

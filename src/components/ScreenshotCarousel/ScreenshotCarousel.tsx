@@ -1,4 +1,5 @@
 import { Carousel, Image } from 'antd'
+
 import { Game } from 'common/types.ts'
 
 type Props = {

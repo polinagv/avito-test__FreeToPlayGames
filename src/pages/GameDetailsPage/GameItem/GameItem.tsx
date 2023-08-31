@@ -1,8 +1,10 @@
+import styled from 'styled-components'
+
 import { Game } from 'common/types.ts'
 import ScreenshotCarousel from 'components/ScreenshotCarousel/ScreenshotCarousel.tsx'
-import GameDescription from '../GameDescription/GameDescription.tsx'
-import styled from 'styled-components'
 import { DescriptionHeader } from 'pages/GameDetailsPage/styles.ts'
+
+import GameDescription from '../GameDescription/GameDescription.tsx'
 
 const GameItemWrap = styled.div`
     display: flex;
